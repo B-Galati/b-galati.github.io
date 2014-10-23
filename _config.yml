@@ -1,0 +1,15 @@
+# Site settings
+title: Benoit Galati personal website
+email: benoit.galati@gmail.com
+description: Benoit Galati personal website
+baseurl: ""
+url: "http://b-galati.github.io"
+twitter_username: B_Galati
+github_username:  b-galati
+highlighter: pygments
+timezone: Europe/Paris
+future: true
+
+# Build settings
+markdown: kramdown
+exclude: ["vendor"]

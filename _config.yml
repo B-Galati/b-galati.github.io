@@ -1,15 +1,55 @@
-# Site settings
-title: Benoit Galati personal website
-email: benoit.galati@gmail.com
-description: Benoit Galati personal website
-baseurl: ""
-url: "http://b-galati.github.io"
-twitter_username: B_Galati
-github_username:  b-galati
-highlighter: pygments
+# Site wide configuration
+title: Des mémos techniques en vrac et plus si affinités
+subtitle: 
+locale: fr_FR
+description: 
+logo: site-logo.png
+search: true
+url:  
 timezone: Europe/Paris
 future: true
+share: true
 
-# Build settings
-markdown: kramdown
-exclude: ["vendor"]
+
+# Jekyll configuration
+permalink:   /:categories/:title/
+markdown:    kramdown
+highlighter: pygments
+sass:
+  sass_dir: _sass
+  style: compressed
+gems:
+  - jekyll-sitemap
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..2
+  use_coderay: false
+
+include: [".htaccess"]
+exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md", "vendor"]
+
+
+# Site owner
+owner:
+  name: Benoit GALATI
+  avatar: 1414963961_linux_tux-512.png
+  email: benoit.galati@gmail.com
+  disqus-shortname:
+  twitter: B_Galati
+  facebook: #username
+  github: B-Galati
+  stackexchange: http://stackoverflow.com/users/4173130/benoit-galati
+  linkedin: #username
+  instagram: #username
+  flickr: #username
+  tumblr: #username
+  google:
+    plus: #username
+    analytics:
+    verify:
+    ad-client:
+    ad-slot: 
+  bing-verify:

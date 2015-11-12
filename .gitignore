@@ -1,8 +1,7 @@
 _site
 .sass-cache
 Gemfile.lock
-./vendor/
-.bundle
-_drafts
+vendor/
+.bundle/
 *.sublime-project
 *.sublime-workspace

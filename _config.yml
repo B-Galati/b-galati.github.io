@@ -1,17 +1,13 @@
 # Site wide configuration
 title: Des mémos techniques en vrac et plus si affinités
-subtitle: 
 locale: fr_FR
-description: 
+description:
 logo: site-logo.png
 search: true
-url:  
-timezone: Europe/Paris
-future: true
-share: true
-
+#url: http://b-galati.github.io
 
 # Jekyll configuration
+
 permalink:   /:categories/:title/
 markdown:    kramdown
 highlighter: pygments
@@ -34,7 +30,7 @@ exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.
 
 # Site owner
 owner:
-  name: Benoit GALATI
+  name: Benoit Galati
   avatar: 1414963961_linux_tux-512.png
   email: benoit.galati@gmail.com
   disqus-shortname:

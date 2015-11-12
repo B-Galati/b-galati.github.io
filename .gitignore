@@ -1,6 +1,10 @@
 _site
-.sass-cache
-vendor/
-.bundle/
+.DS_Store
 *.sublime-project
 *.sublime-workspace
+codekit-config.json
+node_modules/
+.sass-cache/
+_site/
+vendor/
+.bundle/

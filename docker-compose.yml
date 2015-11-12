@@ -1,0 +1,16 @@
+web:
+    image: jekyll/jekyll:pages
+    volumes:
+        - ./:/srv/jekyll
+    ports:
+        - 4000:4000
+    environment:
+        - BUNDLE_CACHE=true
+    command: jekyll serve --drafts --watch --force_polling
+
+tools:
+    image: octopress/octopress
+    environment:
+        - BUNDLE_CACHE=true
+    volumes:
+        - ./:/srv/jekyll

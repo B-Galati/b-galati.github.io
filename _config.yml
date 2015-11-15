@@ -1,15 +1,14 @@
 # Site wide configuration
-title: Des mémos techniques en vrac et plus si affinités
+title: Blog de Benoit Galati
 locale: fr_FR
-description:
 logo: site-logo.png
 search: true
-#url: http://b-galati.github.io
+comments: true
 
 # Jekyll configuration
 
 permalink:   /:categories/:title/
-markdown:    kramdown
+markdown:    redcarpet
 highlighter: pygments
 sass:
   sass_dir: _sass
@@ -33,12 +32,12 @@ owner:
   name: Benoit Galati
   avatar: 1414963961_linux_tux-512.png
   email: benoit.galati@gmail.com
-  disqus-shortname:
+  disqus-shortname: b-galati
   twitter: B_Galati
   facebook: #username
   github: B-Galati
   stackexchange: http://stackoverflow.com/users/4173130/benoit-galati
-  linkedin: #username
+  linkedin: benoit-galati-8719a74a
   instagram: #username
   flickr: #username
   tumblr: #username
@@ -47,5 +46,5 @@ owner:
     analytics:
     verify:
     ad-client:
-    ad-slot: 
+    ad-slot:
   bing-verify:

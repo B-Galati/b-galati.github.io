@@ -8,9 +8,3 @@ web:
         - BUNDLE_CACHE=true
     command: jekyll serve --drafts --watch --force_polling
 
-tools:
-    image: octopress/octopress
-    environment:
-        - BUNDLE_CACHE=true
-    volumes:
-        - ./:/srv/jekyll

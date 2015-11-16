@@ -2,7 +2,7 @@
 layout: post
 title: "Mémo iptables"
 date: 2014-11-02T16:28:55-04:00
-modified:
+modified: 2015-11-02T16:31:55-04:00
 categories: blog
 excerpt:
 tags: ["iptables","admin sys"]
@@ -10,41 +10,34 @@ image:
   feature:
 ---
 
+Un petit résumé de ma modeste expérience avec iptables sur mon serveur.
+
 # Backup/Restore
 
-{% highlight bash %}
+```bash
 # Sauvegarde
 sudo iptables-save > fichier_de_backup
 # Restauration
 sudo iptables-restore < fichier_de_backup
-{% endhighlight %}
-
-
-
+```
 
 # Consultation des règles
 
-{% highlight bash %}
+```bash
 # Règles forwarding
 sudo iptables -t nat -L -n -v
 # Toutes les règles
 sudo iptables -L -n -v
-{% endhighlight %}
-
-
-
+```
 
 # Création de règles
 
-{% highlight bash %}
+```bash
 # Redirige tout le traffic TCP entrant sur le port 25, vers le port 2525
 sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 25 -j REDIRECT --to-port 2525
 # Permet l’accès à internet aux personnes connectées sur le VPN
 iptables -t nat -A POSTROUTING -s 192.168.0/24 -o eth0 -j MASQUERADE
-{% endhighlight %}
-
-
-
+```
 
 # Références
 

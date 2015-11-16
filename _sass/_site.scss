@@ -1,15 +1,15 @@
 // Selection
 // --------------------------------------------------
 
-::-moz-selection { 
-	background-color: lighten($base-color, 65%); 
-	color: $base-color; 
-	text-shadow: none; 
-}  	
-::selection { 
-	background-color: lighten($base-color, 65%); 
-	color: $base-color; 
-	text-shadow: none; 
+::-moz-selection {
+	background-color: lighten($base-color, 65%);
+	color: $base-color;
+	text-shadow: none;
+}
+::selection {
+	background-color: lighten($base-color, 65%);
+	color: $base-color;
+	text-shadow: none;
 }
 
 
@@ -110,22 +110,22 @@ tr, td, th {
 // Links
 // --------------------------------------------------
 
-a { 
+a {
 	text-decoration: none;
-	color: $link-color; 
-	&:visited { 
-		color: lighten($link-color, 20); 
+	color: $link-color;
+	&:visited {
+		color: lighten($link-color, 20);
 	}
-	&:hover { 
-		color: darken($link-color, 20); 
-	}
-	&:focus { 
-		outline: thin dotted; 
+	&:hover {
 		color: darken($link-color, 20);
 	}
-	&:hover, 
-	&:active { 
-		outline: 0; 
+	&:focus {
+		outline: thin dotted;
+		color: darken($link-color, 20);
+	}
+	&:hover,
+	&:active {
+		outline: 0;
 	}
 }
 
@@ -217,7 +217,7 @@ tt, code, kbd, samp, pre {
 	font-family: $code-font;
 }
 p,
-li { 
+li {
 	code {
 		@include font-size(14);
 		font-family: $code-font;
@@ -271,6 +271,6 @@ pre {
 // Global Transition
 // ---------------------------------------------------
 
-b, i, strong, em, blockquote, p, q, span, figure, img, h1, h2, header, input, a, .highlight {
-	@include transition(all .2s ease);
-}
+// b, i, strong, em, blockquote, p, q, span, figure, img, h1, h2, header, input, a, .highlight {
+// 	@include transition(all .2s ease);
+// }

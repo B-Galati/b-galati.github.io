@@ -1,10 +1,12 @@
 ---
 layout: post
 title: "Mémo iptables"
+excerpt:
 date: 2014-11-02T16:28:55-04:00
 categories: blog
 tags: ["iptables","admin sys", "linux"]
 ---
+
 
 Un petit résumé de ma modeste expérience avec iptables sur mon serveur.
 

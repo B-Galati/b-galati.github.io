@@ -1,12 +1,14 @@
 # Site wide configuration
-title: Blog de Benoit Galati
-locale: fr_FR
-logo: site-logo.png
-search: true
+title:       "Blog de Benoit Galati"
+description: "#Linux #Dév #Tech ..et plus si affinités"
+locale:      fr_FR
+# logo: site-logo.png
+# url: http://localhost:4000
+search:   true
 comments: true
+mathjax:  true
 
 # Jekyll configuration
-
 permalink:   /:categories/:title/
 markdown:    redcarpet
 highlighter: pygments
@@ -16,23 +18,16 @@ sass:
 gems:
   - jekyll-sitemap
 
-kramdown:
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..2
-  use_coderay: false
-
-mathjax: true
+timezone: Europe/Paris
+future:   true
 
 include: [".htaccess"]
 exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md", "vendor"]
 
-
 # Site owner
 owner:
   name: Benoit Galati
-  avatar: 1414963961_linux_tux-512.png
+  avatar: # 1414963961_linux_tux-512.png
   email: benoit.galati@gmail.com
   disqus-shortname: b-galati
   twitter: B_Galati

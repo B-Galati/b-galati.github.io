@@ -2,12 +2,8 @@
 layout: post
 title: "Mémo iptables"
 date: 2014-11-02T16:28:55-04:00
-modified: 2015-11-02T16:31:55-04:00
 categories: blog
-excerpt:
-tags: ["iptables","admin sys"]
-image:
-  feature:
+tags: ["iptables","admin sys", "linux"]
 ---
 
 Un petit résumé de ma modeste expérience avec iptables sur mon serveur.

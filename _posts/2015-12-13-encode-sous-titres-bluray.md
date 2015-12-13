@@ -7,7 +7,7 @@ categories: blog
 tags: ["multimedia", "linux", "subtitles"]
 ---
 
-Suite à un problème avec ma télé qui ne voulait pas lire les sous-titres bluray d'un film, j'ai dû trouver un moyen pour les convertir dans un format plus conventionel.
+Suite à un problème avec ma télé qui ne voulait pas lire les sous-titres bluray d'un film, j'ai dû trouver un moyen pour les convertir dans un format plus conventionnel.
 Pour ce faire, j'ai utilisé les outils suivant :
 
 - __mkvtoolnix__ (ensemble d'outils en ligne de commandes pour traiter des fichiers MKV)
@@ -46,21 +46,21 @@ $ mkvextract tracks <nom_du_fichier> 5:<fichier_sortie.sup>
 
 On utilisera BDSup2Sub (à télécharger [ici](https://github.com/mjuhasz/BDSup2Sub/wiki/Download)) :
 
-- Démarrez BDSup2Sub
+- Démarrer BDSup2Sub
 
 ```bash
 $ java -jar BDSup2Sub.jar
 ```
 
-- Chargez le fichier de sous-titre à convertir via le menu _« File -> Load »_
+- Charger le fichier de sous-titres à convertir via le menu _« File -> Load »_
 
-- Laissez les options par défaut et démarrez la conversion via le menu _« File -> Save/Export »_
+- Laisser les options par défaut et démarrer la conversion via le menu _« File -> Save/Export »_
 
 
 
 # 3ème étape : (optionnelle) multiplexer le tout
 
-Pour ma part, ma télé ne lit que la piste de sous-titre par défaut embarquée dans le MKV. C'est pourquoi j'ai dû réintégrer la piste dans le fichier original. Pour ça, on utilisera __MKVToolNix GUI__. C'est assez simple d'utilisation, voici un exemple en image :
+Pour ma part, ma télé ne lit que la piste de sous-titres par défaut embarquée dans le MKV. C'est pourquoi j'ai dû réintégrer la piste dans le fichier original. Pour ça, on utilisera __MKVToolNix GUI__. C'est assez simple d'utilisation, voici un exemple en image :
 
 ![Image Alt](/images/MKVToolNixGUI-exemple-multiplexage-mkv-vobsub.png)
 

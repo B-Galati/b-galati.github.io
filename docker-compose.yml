@@ -6,5 +6,5 @@ web:
         - 4000:4000
     environment:
         - BUNDLE_CACHE=true
-    command: jekyll serve --drafts --watch --force_polling
+    command: sudo -u jekyll jekyll serve --drafts --watch --force_polling
 

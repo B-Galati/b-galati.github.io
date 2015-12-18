@@ -2,6 +2,7 @@
 layout: post
 title: "Convertir des sous-titres PGS (Bluray .sup) en VobSub (DVD .idx/.sub)"
 date: 2015-12-13T20:48:07+00:00
+modified: 2015-12-18T08:55:07+00:00
 excerpt:
 categories: blog
 tags: ["multimedia", "linux", "subtitles"]
@@ -12,7 +13,7 @@ Pour ce faire, j'ai utilisé les outils suivant :
 
 - __mkvtoolnix__ (ensemble d'outils en ligne de commandes pour traiter des fichiers MKV)
 - __mkvtoolnix-gui__ (interface utilisateur de mkvtoolnix)
-- __BDSupToSub__ (pour convertir les sous-titres en SRT classique)
+- __BDSupToSub__ (pour convertir les sous-titres PGS en VobSub)
 
 # 1ère étape : extraire les sous-titres
 

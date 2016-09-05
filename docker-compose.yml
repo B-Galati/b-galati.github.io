@@ -1,10 +1,13 @@
 web:
-    image: jekyll/jekyll:pages
+    image: benoitg/ruby
     volumes:
-        - ./:/srv/jekyll
+        - ./:/usr/src/
+        - ./bundle:/usr/local/bundle
+    expose:
+        - "4000"
     ports:
-        - 4000:4000
+        - "4000:4000"
     environment:
-        - BUNDLE_CACHE=true
-    command: sudo -u jekyll jekyll serve --drafts --watch --force_polling
-
+        - DOCKER_UID
+        - DOCKER_GID
+    command: bundle exec jekyll serve --drafts --watch --force_polling --host '0.0.0.0'

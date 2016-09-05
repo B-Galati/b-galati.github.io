@@ -5,6 +5,7 @@ _site
 codekit-config.json
 vendor/
 .bundle/
+bundle/
 node_modules
 .sass-cache
 .jekyll-metadata

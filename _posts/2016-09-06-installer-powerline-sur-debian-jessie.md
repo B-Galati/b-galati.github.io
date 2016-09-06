@@ -61,4 +61,4 @@ set t_Co=256
 
 Vous remarquerez qu'il faut systématiquement préciser que l'on veut utiliser le mode 256 couleurs sinon ça ne fonctionnera pas.
 
-Pour terminer, toute ma configuration perso se trouve sur mon dépôts [dotfiles](https://github.com/b-galati/dotfiles). Les questions/améliorations sont les bienvenues !
+Pour terminer, toute ma configuration perso se trouve sur mon dépôt [dotfiles](https://github.com/b-galati/dotfiles). Les questions/améliorations sont les bienvenues !

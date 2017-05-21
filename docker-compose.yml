@@ -1,13 +1,14 @@
-web:
+version: "3"
+services:
+  web:
     image: benoitg/ruby
+    working_dir: /usr/src
+    entrypoint: []
     volumes:
         - ./:/usr/src/
-        - ./bundle:/usr/local/bundle
-    expose:
-        - "4000"
+        - ./bundle/:/usr/local/bundle/
+        - /etc/passwd:/etc/passwd:ro
     ports:
-        - "4000:4000"
-    environment:
-        - DOCKER_UID
-        - DOCKER_GID
+        - 4000:4000
+    user: ${DOCKER_UID}:${DOCKER_GID}
     command: bundle exec jekyll serve --drafts --watch --force_polling --host '0.0.0.0'

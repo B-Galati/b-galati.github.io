@@ -11,4 +11,4 @@ services:
     ports:
         - 4000:4000
     user: ${DOCKER_UID}:${DOCKER_GID}
-    command: bundle exec jekyll serve --drafts --watch --force_polling --host '0.0.0.0'
+    command: bundle exec jekyll serve --drafts --watch --force_polling --host '0.0.0.0' --ssl-cert .ssl/crt.txt --ssl-key .ssl/key.txt

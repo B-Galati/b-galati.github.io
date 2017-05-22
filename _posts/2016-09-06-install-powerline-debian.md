@@ -62,4 +62,4 @@ set t_Co=256
 
 I am sure you have noticed that each time we must set the 256 colors mode otherwise it cannot work.
 
-To finish, all my personal config is my [dotfiles](https://github.com/b-galati/dotfiles) repository. Questions / Suggestions are welcomed ;-).
+To finish, all my personal config is in my [dotfiles](https://github.com/b-galati/dotfiles) repository. Questions / Suggestions are welcomed ;-).

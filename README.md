@@ -18,6 +18,9 @@ docker-compose up # watch any updates
 ```bash
 bin/app bundle exec octopress new draft <draft-name>
 bin/app bundle exec octopress publish _drafts/<filename>.md
+
+# Generate date with the right format
+php -r "echo date(DATE_ATOM);"
 ```
 
 Credit [So Simple Theme](https://github.com/mmistakes/so-simple-theme/)

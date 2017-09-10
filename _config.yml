@@ -6,7 +6,7 @@ locale:      en_US
 url: https://www.bgalati.fr
 search:   true
 comments: true
-mathjax:  true
+mathjax:  false
 
 # Jekyll configuration
 permalink:   /:categories/:title/
@@ -29,8 +29,6 @@ kramdown:
   entity_output: as_char
   toc_levels: 1..2
   enable_coderay: false
-
-mathjax: true
 
 include: [".htaccess"]
 exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", ".less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md", "vendor", "bundle", ".ssl", "bin"]

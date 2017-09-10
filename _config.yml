@@ -3,7 +3,7 @@ title:       "Benoit Galati's blog"
 description: "#Linux #Dev #Tech ..and more"
 locale:      en_US
 # logo: site-logo.png
-# url: http://localhost:4000
+url: https://www.bgalati.fr
 search:   true
 comments: true
 mathjax:  true

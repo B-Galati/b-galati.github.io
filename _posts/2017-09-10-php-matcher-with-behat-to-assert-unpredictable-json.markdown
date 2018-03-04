@@ -1,6 +1,6 @@
 ---
 title: PHP Matcher with Behat to assert unpredictable Json
-date: 2017-09-10T17:28:08+00:00%
+date: 2017-09-10T17:28:08+00:00
 layout: post
 excerpt:
 categories: blog

@@ -8,7 +8,7 @@ export DOCKER_GID=$(id -g)
 mkdir bundle # avoir permission issue with docker
 
 bin/app bundle install
-bin/app bundle exec jekyll build # compile the website
+bin/app bundle exec jekyll build --drafts # compile the website
 
 docker-compose up # watch any updates
 ```

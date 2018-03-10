@@ -1,6 +1,7 @@
 ---
 title: docker-compose-caching-in-CI
 date: 2018-03-04T09:07:28+01:00
+modified: 2018-03-10T11:33:55+01:00
 title: A docker compose caching strategy for CI
 layout: post
 excerpt:
@@ -41,9 +42,9 @@ version: "3.2"
         volumes:
             - .:/app
         # This is the image name that will be generated during the build
-        # APP_DOCKER_IMAGE_MD5 is generated at runtime by the the CI
+        # DOCKER_IMAGE_MD5 is generated at runtime by the the CI
         # It is used for pulling and pushing
-        image: ${APP_DOCKER_IMAGE_NAME}:${APP_DOCKER_IMAGE_MD5}
+        image: ${DOCKER_IMAGE}
         build:
             context: docker/dev
             # Two images are used for caching
@@ -51,8 +52,8 @@ version: "3.2"
             # 2) The last CI build to try reusing as much cache as possible when
             #    a brand new image needs to be built
             cache_from:
-                - ${APP_DOCKER_IMAGE_NAME}:${APP_DOCKER_IMAGE_MD5}
-                - ${APP_DOCKER_IMAGE_NAME}:ci
+                - ${DOCKER_IMAGE}
+                - ${DOCKER_IMAGE_CI}
 ```
 
 Here is the CircleCI config :
@@ -69,23 +70,16 @@ references:
 
     # This is the task which generate a md5 hash of the content of the docker directory
     # Basically it generates a md5 of all files in the "docker" directory, then put them
-    # in a file called "docker.md5" and finally generates a md5 of this file.
+    # in a file called "docker-ci.md5" and finally generates a md5 of this file.
     generate_docker_hashes: &generate_docker_hashes
         run: |
-            test -e docker.md5 || find docker -type f -exec md5sum {} \; | sort -k 2 > docker.md5
-            echo 'export APP_DOCKER_IMAGE_NAME=example/docker-caching' >> $BASH_ENV
-            echo 'export APP_DOCKER_IMAGE_MD5=$(md5sum docker.md5 | cut -f1 -d" ")' >> $BASH_ENV
+            test -e docker-ci.md5 || find docker -type f -exec md5sum {} \; | sort -k 2 > docker-ci.md5
+            echo 'export DOCKER_IMAGE_MD5=$(md5sum docker-ci.md5 | cut -f1 -d" ")' >> $BASH_ENV
+            echo 'export DOCKER_IMAGE=example/docker-caching:$DOCKER_IMAGE_MD5' >> $BASH_ENV
+            echo 'export DOCKER_IMAGE_CI=example/docker-caching:ci' >> $BASH_ENV
 
     authenticate_on_registry: &authenticate_on_registry
         run: docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
-
-    # Let's try to get the image if it exists
-    # The build job is responsible to pull the fallback image tag with "ci"
-    build_docker_images: &build_docker_images
-        run: |
-            set -x
-            docker-compose pull --ignore-pull-failures --parallel
-            docker-compose build
 
 jobs:
     build:
@@ -94,24 +88,29 @@ jobs:
             - checkout
 
             - *authenticate_on_registry
-            # Try to pull, then build a new image if it is needed
             - *generate_docker_hashes
-            - run: docker pull $APP_DOCKER_IMAGE_NAME:ci || true
-            - *build_docker_images
-            # Build is done. We tag the (perhaps new) image
-            # with "ci" (ie. the last built version) and push.
+
             - run: |
-                set -x
-                docker tag ci $APP_DOCKER_IMAGE_NAME:$APP_DOCKER_IMAGE_MD5
-                docker-compose push
+              set -x
+
+          # Try to pull, then build a new image if it is needed
+              docker pull $DOCKER_IMAGE_CI || true
+              docker-compose pull --ignore-pull-failures --parallel
+              docker-compose build
+
+          # Build is done. We tag the (perhaps new) image with "ci" (ie. the last built version) and push.
+              docker tag $DOCKER_IMAGE $DOCKER_IMAGE_CI
+              docker-compose push
 
     unit-test:
         <<: *configure_base
         steps:
             - *generate_docker_hashes
             - *authenticate_on_registry
-            - *build_docker_images
-            # Run tests now
+
+            # At this point, the pull must be successful because we just pushed that hash
+            - run: docker-compose pull --parallel
+            # Run tests now as you would do on your machine
 
 workflows:
     version: 2

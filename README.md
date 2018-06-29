@@ -1,29 +1,14 @@
-# How-to
-
-```bash
-# Set up environment variables
-export DOCKER_UID=$(id -u)
-export DOCKER_GID=$(id -g)
-
-mkdir bundle # avoir permission issue with docker
-
-bin/app bundle install
-bin/app bundle exec jekyll build --drafts # compile the website
-
-docker-compose up # watch any updates
-```
-
-# Useful commands
-
-```bash
-bin/app bundle exec octopress new draft <draft-name>
-bin/app bundle exec octopress publish _drafts/<filename>.md
-
-# Generate date with the right format
-php -r "echo date(DATE_ATOM);"
-```
-
 Credit [So Simple Theme](https://github.com/mmistakes/so-simple-theme/)
+
+# Usage
+
+```bash
+# Start the project and watch updates
+make start
+
+# To know any other useful command
+make
+```
 
 # References
 

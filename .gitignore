@@ -9,3 +9,5 @@ bundle/
 node_modules
 .sass-cache
 .jekyll-metadata
+.ssl/
+!.ssl/.gitkeep

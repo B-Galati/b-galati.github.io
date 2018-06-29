@@ -1,6 +1,6 @@
-version: "3"
+version: "3.4"
 services:
-  web:
+  app:
     image: benoitg/ruby
     working_dir: /usr/src
     entrypoint: []
@@ -8,9 +8,7 @@ services:
         - ./:/usr/src/
         - ./bundle/:/usr/local/bundle/
         - /etc/passwd:/etc/passwd:ro
-    ports:
-        - 4000:4000
     environment:
         - DOMAIN_NAME=bgalati.docker
     user: ${DOCKER_UID}:${DOCKER_GID}
-    command: bundle exec jekyll serve --drafts --watch --force_polling --host '0.0.0.0' --ssl-cert .ssl/crt.txt --ssl-key .ssl/key.txt
+    command: bundle exec jekyll serve --drafts --watch --force_polling --host 'bgalati.docker' --ssl-cert .ssl/cert.crt --ssl-key .ssl/private.key

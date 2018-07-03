@@ -1,6 +1,13 @@
+SHELL=/bin/bash
+
+$(shell mkdir -p bundle) # avoid permission issue with docker
+
+export HOST_UID=$(shell id -u)
+export HOST_GID=$(shell id -g)
+
 DOCKER_COMPOSE?=docker-compose
-RUN=DOCKER_UID=$$(id -u) DOCKER_GID=$$(id -g) $(DOCKER_COMPOSE) run --rm app
-EXEC=DOCKER_UID=$$(id -u) DOCKER_GID=$$(id -g) $(DOCKER_COMPOSE) exec app
+RUN=$(DOCKER_COMPOSE) run --rm app
+EXEC=$(DOCKER_COMPOSE) exec app
 
 .DEFAULT_GOAL := help
 
@@ -13,10 +20,9 @@ help:
 ## Project setup
 ##---------------------------------------------------------------------------
 
-.PHONY: start stop reset
+.PHONY: start stop reset clean
 
 start: .ssl/cert.crt deps ## Install and start the project
-	mkdir -p bundle # avoid permission issue with docker
 	$(DOCKER_COMPOSE) pull --parallel --ignore-pull-failures
 	$(DOCKER_COMPOSE) up --remove-orphans --no-recreate
 
@@ -26,7 +32,7 @@ stop: ## Remove docker containers, volumes, networks, etc.
 reset: stop start ## Clean-up and restart the whole project
 
 clean: stop
-	rm -rf .ssl/cert.crt .ssl/private.key bundle/* _site/*
+	rm -rf .ssl/cert.crt .ssl/private.key bundle/* _site/
 
 ##
 ## Utils

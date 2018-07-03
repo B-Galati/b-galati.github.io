@@ -7,8 +7,7 @@ services:
     volumes:
         - ./:/usr/src/
         - ./bundle/:/usr/local/bundle/
-        - /etc/passwd:/etc/passwd:ro
     environment:
         - DOMAIN_NAME=bgalati.docker
-    user: ${DOCKER_UID}:${DOCKER_GID}
+    user: ${HOST_UID}:${HOST_GID}
     command: bundle exec jekyll serve --drafts --watch --force_polling --host 'bgalati.docker' --ssl-cert .ssl/cert.crt --ssl-key .ssl/private.key

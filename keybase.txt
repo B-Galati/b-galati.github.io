@@ -1,0 +1,72 @@
+==================================================================
+https://keybase.io/bgalati
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://www.bgalati.fr
+  * I am bgalati (https://keybase.io/bgalati) on keybase.
+  * I have a public key with fingerprint B675 6E4A F33E 081D AB03  719C D8F2 5183 44D9 921B
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01018124bc4082c267df82c9112d783430a91eb91d341a3329fbbd1c8badbebbfbc10a",
+      "fingerprint": "b6756e4af33e081dab03719cd8f2518344d9921b",
+      "host": "keybase.io",
+      "key_id": "d8f2518344d9921b",
+      "kid": "01018124bc4082c267df82c9112d783430a91eb91d341a3329fbbd1c8badbebbfbc10a",
+      "uid": "9311331a5338f893f842390f146f9419",
+      "username": "bgalati"
+    },
+    "service": {
+      "hostname": "www.bgalati.fr",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1560672544,
+  "expire_in": 157680000,
+  "prev": "1e4444270530b9f6c9fc74048af2d68c83c5b9d69c2208223a0e9320c80a7621",
+  "seqno": 4,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+
+owGtUltMFGcY3V2gXIQKPgCVgjLZQLmUzj8zO5eFSDRKAbFELRANls51GdnuLLsD
+W9gg5aIibtBAlEtWioWoS4vVbqE2aLxWKNYKApaWhKI2mPahRSQS0UBnCb71sd/L
+l//855zvku94kJcqQD0xt7Nm66+NEeo7fzKqfT4vYuwQI3FlkN4OFfEriTdyvFUu
+KBI5SA/BAAYkQDCGxWASYRGc4AQlUwAgHEGiGArTFOAZCnAoBmgURSiBYTjAkgzN
+MTzDCAwLYBpKhATRZOAtZotokhVbBid0OI/RAoryMAk4moFRAlAsRwqIDii+GEdR
+CGAUYaFk9SiU5hjayieJkoIpj4KV9v6D/z/3XbJiR6EAoCigdShKCiSFCiSGoBQs
+AAwXKAxQHqKVt5joT3jPdAbaSMsiVJEIKWCpyPKevXoGWSXYbLakVVKSYFHEZosk
+S6xkVP4KZdls1Xu0cpl5hcwzBas2BYxo4pRFKopS3mIVJROkBwqTlUWPL9DhME4g
+OgxLhPhPzaKFLxA9DB2Bk7ASnjp8qWIJeEyJPQgB61CYoQScpQSWwGCMpAWEw0mW
+RFkdQ3E4xSKIsj8EpWGeQhGYJWGawBEAeSYrNkmQXikl0wbF0yoaTLRcYuGhioAj
+GtRbpQ5QRYZGe/eVmDKfbfKL/NKr2Pn6+Hw0nstTBfgHv0bmetYuy7ve99G1h7Md
+axaHLl6Jq/rMmDdbEdvw3smzZZ0P5+Ndo/fuUcuuogHblfbNIfZwbXzLz2NSW0rM
+dK76kmE+9Lxt47mMuuFszeJkY7Dv3q0tPVoNhe/vum9+/vbyrmrcTiOZ1tHJy78d
+zwxvWHrq9+ond2vGo8fuWmHNSEhAnv+DGO3wudw/stYPzSXHGhya7qzevPmsA0Fj
+0X5v5tQ4p37M1nv1Oj92n3h8Jtm5c4P2uvu29+m1xxYu/3VzQ+jCUNpGti9ikbjb
+XJV5G5embh0sB/drrjbtJm7CAxM/OJ3cw8GZvgpjW+679gMOYk/zuo+82Q/HHWP+
+t/I7O/P/iRMdoVsGp29cyD6iakjrudqoHum3p58fqLXFz+xgvnlw0SvanPriaMLd
+1m93xOZ8YA9q2X7Ke7fesb7blfMopAtTY/UzKVjkhUMnc1MrE3jXM7wnuKmj7Xl9
+uzbwUPJ1bKZqPC0/xfrkzlkE+qqo/3cu3el7TVs+Oz26fHg67o2w7DD3jYkn8y3L
+xZvc+x3jS1LKtUt9g+/s/TvyRE1/unnbdwefquTMhWP1lYHft2T4ahOirK8KI1zd
+s+Vdtdlneo1tmp7KsC2x2IjU4egd3lf3Nbxt6qWlaab5cF1g1Fudtl9Oh31RvcS3
+VoSYXUPYqcmXDam+sLy5OuRzFx2Wsn2wNmrdvw==
+=rfbu
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/bgalati
+
+==================================================================

@@ -7,6 +7,7 @@ url: https://www.bgalati.fr
 search:   true
 comments: true
 mathjax:  false
+theme: jekyll-theme-so-simple
 
 # Jekyll configuration
 permalink:   /:categories/:title/
@@ -41,6 +42,8 @@ owner:
   disqus-shortname: b-galati
   twitter: B_Galati
   facebook: #username
+  keybase: bgalati
+  symfony: benoitgalati
   github: B-Galati
   stackexchange: "http://stackoverflow.com/users/4173130/benoit-galati"
   linkedin: benoit-galati-8719a74a

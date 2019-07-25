@@ -1,13 +1,9 @@
 SHELL=/bin/bash
 
-$(shell mkdir -p bundle) # avoid permission issue with docker
+$(shell mkdir -p ~/.bundle/cache) # avoid permission issue with docker
 
-export HOST_UID=$(shell id -u)
-export HOST_GID=$(shell id -g)
-
-DOCKER_COMPOSE?=docker-compose
-RUN=$(DOCKER_COMPOSE) run --rm app
-EXEC=$(DOCKER_COMPOSE) exec app
+RUN=docker-compose run --rm --no-deps app
+EXEC=docker-compose exec app
 
 .DEFAULT_GOAL := help
 
@@ -23,16 +19,16 @@ help:
 .PHONY: start stop reset clean
 
 start: .ssl/cert.crt deps ## Install and start the project
-	$(DOCKER_COMPOSE) pull --parallel --ignore-pull-failures
-	$(DOCKER_COMPOSE) up --remove-orphans --no-recreate
+	docker-compose pull --parallel --ignore-pull-failures
+	docker-compose up --remove-orphans --no-recreate
 
 stop: ## Remove docker containers, volumes, networks, etc.
-	$(DOCKER_COMPOSE) down --volumes --remove-orphans
+	docker-compose down --volumes --remove-orphans
 
 reset: stop start ## Clean-up and restart the whole project
 
 clean: stop
-	rm -rf .ssl/cert.crt .ssl/private.key bundle/* _site/
+	rm -rf .ssl/ bundle/ _site/ node_modules/
 
 ##
 ## Utils
@@ -55,17 +51,22 @@ publish: # Publish draft defined by $DRAFT variable
 
 .PHONY: deps
 
-deps: bundle ## Install the project dependencies
+deps: bundle node_modules ## Install the project dependencies
 
 ##
 # Internal rules
 ##
 
-bundle: Gemfile.lock
+bundle: Gemfile.lock Gemfile
 	$(RUN) bundle install
+
+node_modules: package.json package-lock.json
+	npm install
 
 Gemfile.lock: Gemfile
 	@echo Gemfile.lock is not up to date.
 
 .ssl/cert.crt:
-	$(RUN) openssl req -x509 -nodes -newkey rsa:2048 -sha256 -keyout .ssl/private.key -out .ssl/cert.crt -subj "/CN=bgalati.docker" -days 3650
+	mkcert -cert-file .ssl/cert.crt \
+		-key-file .ssl/private.key \
+		bgalati.docker

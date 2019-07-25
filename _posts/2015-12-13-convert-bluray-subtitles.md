@@ -2,7 +2,7 @@
 layout: post
 title: "Convert PGS subtitles (Blu-ray .sup) to VobSub (DVD .idx/.sub)"
 date: 2015-12-13T20:48:07+00:00
-modified: 2017-05-21T23:17:49-04:00
+modified: 2019-07-25T08:56:33+02:00%
 excerpt:
 categories: blog
 tags: ["multimedia", "linux", "subtitles"]

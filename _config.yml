@@ -1,61 +1,111 @@
-# Site wide configuration
-title:       "Benoit Galati's blog"
-description: "#Linux #Dev #Tech ..and more"
-locale:      en_US
-# logo: site-logo.png
-url: https://www.bgalati.fr
-search:   true
-comments: true
-mathjax:  false
 theme: jekyll-theme-so-simple
-
-# Jekyll configuration
-permalink:   /:categories/:title/
-markdown:    kramdown
-highlighter: rouge
-sass:
-  sass_dir: _sass
-  style: compressed
-plugins:
-  - jekyll-sitemap
-  - jekyll-gist
-  - jekyll-feed
-
+locale: en-US
+title: "Benoit Galati's blog"
+description: "#Linux #Dev #Tech ..and more"
+baseurl: # the subpath of your site, e.g. "/blog"
+url: https://www.bgalati.fr
+logo: # path of site logo, e.g. "/images/logo.png"
+date_format: "%B %-d, %Y"
+read_time: true # reading time estimates, e.g. true
+words_per_minute: # 200
+mathjax: true # MathJax equations, e.g. true
+google_fonts:
+  - name: "Source Sans Pro"
+    weights: "400,400i,700,700i"
+  - name: "Lora"
+    weights: "400,400i,700,700i"
+google_analytics: # Google Analytics id, e.g. "UA-NNNNNNNN-N"
+disqus:
+  shortname: b-galati # Disqus shortname, e.g. "my_disqus_shortname"
+twitter:
+  username: B_Galati # site's Twitter username, e.g. "mmistakes"
 timezone: Europe/Paris
-future:   true
-kramdown:
-  input: GFM
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..2
-  enable_coderay: false
+future: true
 
-include: [".htaccess"]
-exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", ".less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md", "vendor", "bundle", ".ssl", "bin"]
+# Liquid
+liquid:
+  error_mode: strict
 
-# Site owner
-owner:
+# Build settings
+permalink: /:categories/:title/
+markdown: kramdown
+feed:
+  path: atom.xml
+
+# TODO TEST ME
+#kramdown:
+#  input: GFM
+#  auto_ids: true
+#  footnote_nr: 1
+#  entity_output: as_char
+#  toc_levels: 1..2
+#  enable_coderay: false
+
+# Pagination - https://jekyllrb.com/docs/pagination/
+# paginate: 10
+# paginate_path: /page:num/
+
+# Search
+search_full_content: false # can have performance implications for large sites
+
+# Taxonomy pages
+# category_archive_path: "/categories/#"
+# tag_archive_path: "/tags/#"
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-gist
+
+# Front Matter Defaults
+defaults:
+  # Posts defaults
+  - scope:
+      path: "_posts"
+      type: posts
+    values:
+      layout: post
+      share: true
+
+# Site Author
+author:
   name: Benoit Galati
-  avatar: # 1414963961_linux_tux-512.png
+  picture: # 1414963961_linux_tux-512.png
   email: benoit.galati@gmail.com
-  disqus-shortname: b-galati
   twitter: B_Galati
-  facebook: #username
-  keybase: bgalati
-  symfony: benoitgalati
-  github: B-Galati
-  stackexchange: "http://stackoverflow.com/users/4173130/benoit-galati"
-  linkedin: benoit-galati-8719a74a
-  instagram: #username
-  flickr: #username
-  tumblr: #username
-  pinterest: #username
-  weibo: #userid
-  google:
-    plus: #username
-    analytics: #UA-86889976-1
-    verify:
-    ad-client:
-    ad-slot:
-  bing-verify:
+  links:
+    - title: Keybase
+      url: bgalati
+      icon: keybase
+    - title: Symfony Connect
+      url: benoitgalati
+      icon: symfony
+    - title: GitHub
+      url: B-Galati
+      icon: github
+    - title: LinkedIn
+      url: benoit-galati-8719a74a
+      icon: linkedin
+    - title: Stackoverflow
+      url: http://stackoverflow.com/users/4173130/benoit-galati
+      icon: stackoverflow
+
+# Footer Links
+footer_links:
+  - title: Feed
+    url: atom.xml
+    icon: fas fa-rss-square

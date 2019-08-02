@@ -1,4 +1,5 @@
-theme: jekyll-theme-so-simple
+#theme: jekyll-theme-so-simple
+#remote_theme: "mmistakes/so-simple-theme"
 locale: en-US
 title: "Benoit Galati's blog"
 description: "#Linux #Dev #Tech ..and more"
@@ -32,15 +33,6 @@ markdown: kramdown
 feed:
   path: atom.xml
 
-# TODO TEST ME
-#kramdown:
-#  input: GFM
-#  auto_ids: true
-#  footnote_nr: 1
-#  entity_output: as_char
-#  toc_levels: 1..2
-#  enable_coderay: false
-
 # Pagination - https://jekyllrb.com/docs/pagination/
 # paginate: 10
 # paginate_path: /page:num/
@@ -55,14 +47,30 @@ search_full_content: false # can have performance implications for large sites
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - bundle/
+  - config.rb
+  - Rakefile
+  - LICENCE
+  - README.md
+  - bin/
+  - package.json
+  - package-lock.json
+  - .idea/
+  - docker-compose.yml
+  - .editorconfig
+  - .gitattributes
+  - .gitignore
+  - .ssl/
+  - _config.yml
+  - Makefile
 
 plugins:
   - jekyll-seo-tag
@@ -84,21 +92,21 @@ defaults:
 # Site Author
 author:
   name: Benoit Galati
-  picture: # 1414963961_linux_tux-512.png
+  picture: /images/avatar.jpg
   email: benoit.galati@gmail.com
   twitter: B_Galati
   links:
     - title: Keybase
-      url: bgalati
+      url: https://keybase.io/bgalati
       icon: keybase
     - title: Symfony Connect
-      url: benoitgalati
+      url: https://connect.symfony.com/profile/benoitgalati
       icon: symfony
     - title: GitHub
-      url: B-Galati
+      url: https://github.com/B-Galati
       icon: github
     - title: LinkedIn
-      url: benoit-galati-8719a74a
+      url: https://www.linkedin.com/in/benoitgalati
       icon: linkedin
     - title: Stackoverflow
       url: http://stackoverflow.com/users/4173130/benoit-galati
@@ -106,6 +114,18 @@ author:
 
 # Footer Links
 footer_links:
-  - title: Feed
-    url: atom.xml
-    icon: fas fa-rss-square
+  - title: Keybase
+    url: https://keybase.io/bgalati
+    icon: keybase
+  - title: Symfony Connect
+    url: https://connect.symfony.com/profile/benoitgalati
+    icon: symfony
+  - title: GitHub
+    url: https://github.com/B-Galati
+    icon: github
+  - title: LinkedIn
+    url: https://www.linkedin.com/in/benoitgalati
+    icon: linkedin
+  - title: Stackoverflow
+    url: http://stackoverflow.com/users/4173130/benoit-galati
+    icon: stackoverflow

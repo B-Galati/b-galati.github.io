@@ -1,6 +1,6 @@
 SHELL=/bin/bash
 
-$(shell mkdir -p ~/.bundle/cache) # avoid permission issue with docker
+$(shell mkdir -p ~/.cache/bundle) # avoid permission issue with docker
 
 RUN=docker-compose run --rm --no-deps app
 EXEC=docker-compose exec app
@@ -20,7 +20,7 @@ help:
 
 start: .ssl/cert.crt deps ## Install and start the project
 	docker-compose pull --parallel --ignore-pull-failures
-	docker-compose up --remove-orphans --no-recreate
+	docker-compose up --remove-orphans
 
 stop: ## Remove docker containers, volumes, networks, etc.
 	docker-compose down --volumes --remove-orphans
@@ -34,13 +34,13 @@ clean: stop
 ## Utils
 ##---------------------------------------------------------------------------
 
-build: # Compile the website
+build: ## Compile the website
 	$(EXEC) bundle exec jekyll build --drafts
 
-draft: # Create a new draft defined by $DRAFT variable
+draft: ## Create a new draft defined by $DRAFT variable
 	$(EXEC) bundle exec octopress new draft ${DRAFT}
 
-publish: # Publish draft defined by $DRAFT variable
+publish: ## Publish draft defined by $DRAFT variable
 	$(EXEC) bundle exec octopress publish _drafts/${DRAFT}
 	@echo "Published date :\n"
 	@php -r "echo date(DATE_ATOM);"
@@ -51,7 +51,7 @@ publish: # Publish draft defined by $DRAFT variable
 
 .PHONY: deps
 
-deps: bundle node_modules ## Install the project dependencies
+deps: bundle ## Install the project dependencies
 
 ##
 # Internal rules
@@ -59,14 +59,20 @@ deps: bundle node_modules ## Install the project dependencies
 
 bundle: Gemfile.lock Gemfile
 	$(RUN) bundle install
+	@touch $@
+
+assets/js/main.min.js: node_modules
+	npm run build:js
 
 node_modules: package.json package-lock.json
 	npm install
+	@touch $@
 
 Gemfile.lock: Gemfile
 	@echo Gemfile.lock is not up to date.
 
 .ssl/cert.crt:
+	mkdir -p .ssl
 	mkcert -cert-file .ssl/cert.crt \
 		-key-file .ssl/private.key \
 		bgalati.docker

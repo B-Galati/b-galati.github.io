@@ -1,6 +1,5 @@
 # Theme text and labels
 
-
 # English (default)
 # -----------------
 en: &DEFAULT_EN
@@ -70,7 +69,7 @@ de-AU:
 de-CH:
   <<: *DEFAULT_DE
 
-      
+
 # Spanish
 # -------
 es: &DEFAULT_ES

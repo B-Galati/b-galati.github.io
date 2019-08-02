@@ -51,7 +51,7 @@ publish: ## Publish draft defined by $DRAFT variable
 
 .PHONY: deps
 
-deps: bundle ## Install the project dependencies
+deps: bundle assets/js/main.min.js ## Install the project dependencies
 
 ##
 # Internal rules

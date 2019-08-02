@@ -5,7 +5,7 @@ title: "Benoit Galati's blog"
 description: "#Linux #Dev #Tech ..and more"
 baseurl: # the subpath of your site, e.g. "/blog"
 url: https://www.bgalati.fr
-logo: # path of site logo, e.g. "/images/logo.png"
+logo: #/images/avatar.jpg # path of site logo, e.g. "/images/logo.png"
 date_format: "%B %-d, %Y"
 read_time: true # reading time estimates, e.g. true
 words_per_minute: # 200
@@ -31,7 +31,7 @@ liquid:
 permalink: /:categories/:title/
 markdown: kramdown
 feed:
-  path: atom.xml
+  path: feed.xml
 
 # Pagination - https://jekyllrb.com/docs/pagination/
 # paginate: 10
@@ -65,6 +65,7 @@ exclude:
   - package-lock.json
   - .idea/
   - docker-compose.yml
+  - banner.js
   - .editorconfig
   - .gitattributes
   - .gitignore
@@ -96,36 +97,45 @@ author:
   email: benoit.galati@gmail.com
   twitter: B_Galati
   links:
-    - title: Keybase
-      url: https://keybase.io/bgalati
-      icon: keybase
-    - title: Symfony Connect
-      url: https://connect.symfony.com/profile/benoitgalati
-      icon: symfony
     - title: GitHub
       url: https://github.com/B-Galati
-      icon: github
-    - title: LinkedIn
-      url: https://www.linkedin.com/in/benoitgalati
-      icon: linkedin
+      icon: fab fa-github
+    - title: Twitter
+      url: https://twitter.com/B_Galati
+      icon: fab fa-twitter
+    - title: Symfony Connect
+      url: https://connect.symfony.com/profile/benoitgalati
+      icon: fab fa-symfony
     - title: Stackoverflow
       url: http://stackoverflow.com/users/4173130/benoit-galati
-      icon: stackoverflow
+      icon: fab fa-stack-overflow
+    - title: Keybase
+      url: https://keybase.io/bgalati
+      icon: fab fa-keybase
+    - title: LinkedIn
+      url: https://www.linkedin.com/in/benoitgalati
+      icon: fab fa-linkedin
 
 # Footer Links
 footer_links:
-  - title: Keybase
-    url: https://keybase.io/bgalati
-    icon: keybase
-  - title: Symfony Connect
-    url: https://connect.symfony.com/profile/benoitgalati
-    icon: symfony
   - title: GitHub
     url: https://github.com/B-Galati
-    icon: github
-  - title: LinkedIn
-    url: https://www.linkedin.com/in/benoitgalati
-    icon: linkedin
+    icon: fab fa-github
+  - title: Twitter
+    url: https://twitter.com/B_Galati
+    icon: fab fa-twitter
+  - title: Symfony Connect
+    url: https://connect.symfony.com/profile/benoitgalati
+    icon: fab fa-symfony
   - title: Stackoverflow
     url: http://stackoverflow.com/users/4173130/benoit-galati
-    icon: stackoverflow
+    icon: fab fa-stack-overflow
+  - title: Keybase
+    url: https://keybase.io/bgalati
+    icon: fab fa-keybase
+  - title: LinkedIn
+    url: https://www.linkedin.com/in/benoitgalati
+    icon: fab fa-linkedin
+  - title: RSS Feed
+    url: /feed.xml
+    icon: fas fa-rss

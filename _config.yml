@@ -115,6 +115,9 @@ author:
     - title: LinkedIn
       url: https://www.linkedin.com/in/benoitgalati
       icon: fab fa-linkedin
+    - title: Patreon
+      url: https://www.patreon.com/user/creators?u=2547714
+      icon: fab fa-patreon
 
 # Footer Links
 footer_links:
@@ -136,6 +139,9 @@ footer_links:
   - title: LinkedIn
     url: https://www.linkedin.com/in/benoitgalati
     icon: fab fa-linkedin
+  - title: Patreon
+    url: https://www.patreon.com/user/creators?u=2547714
+    icon: fab fa-patreon
   - title: RSS Feed
     url: /feed.xml
     icon: fas fa-rss

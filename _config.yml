@@ -1,8 +1,8 @@
 #theme: jekyll-theme-so-simple
 #remote_theme: "mmistakes/so-simple-theme"
 locale: en-US
-title: "Benoit Galati's blog"
-description: "#Linux #Dev #Tech ..and more"
+title: "Benoit Galati"
+description: "Blog #Linux #Dev #Tech ...and more"
 baseurl: # the subpath of your site, e.g. "/blog"
 url: https://www.bgalati.fr
 logo: #/images/avatar.jpg # path of site logo, e.g. "/images/logo.png"

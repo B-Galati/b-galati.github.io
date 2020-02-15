@@ -1,7 +1,8 @@
 /_asset_bundler_cache
 /_site
 /.DS_Store
-/.jekyll-metadata
+/.jekyll-cache
+.jekyll-metadata
 /.sass-cache
 /*.gem
 /*.sublime-project

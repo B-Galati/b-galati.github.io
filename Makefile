@@ -28,7 +28,7 @@ stop: ## Remove docker containers, volumes, networks, etc.
 reset: stop start ## Clean-up and restart the whole project
 
 clean: stop
-	rm -rf .ssl/ bundle/ _site/ node_modules/
+	rm -rf .ssl/ bundle/ _site/
 
 ##
 ## Utils
@@ -51,7 +51,11 @@ publish: ## Publish draft defined by $DRAFT variable
 
 .PHONY: deps
 
-deps: bundle assets/js/main.min.js ## Install the project dependencies
+deps: bundle ## Install the project dependencies
+
+.PHONY: bundle-update
+deps-update: ## Update the project dependencies
+	$(RUN) bundle update
 
 ##
 # Internal rules
@@ -59,13 +63,6 @@ deps: bundle assets/js/main.min.js ## Install the project dependencies
 
 bundle: Gemfile.lock Gemfile
 	$(RUN) bundle install
-	@touch $@
-
-assets/js/main.min.js: node_modules
-	npm run build:js
-
-node_modules: package.json package-lock.json
-	npm install
 	@touch $@
 
 Gemfile.lock: Gemfile

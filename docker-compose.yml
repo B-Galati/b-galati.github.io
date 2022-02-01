@@ -1,10 +1,10 @@
 version: "3.4"
 services:
   app:
-    image: benoitg/ruby
+    image: benoitg/ruby:2
     volumes:
       - ./:/app
       - ~/.cache/bundle:/home/ruby/.cache/bundle
     ports:
-      - 4000:4000
+      - "4000:4000"
     command: bundle exec jekyll serve --drafts --watch --force_polling --host 0.0.0.0 --ssl-cert .ssl/cert.crt --ssl-key .ssl/private.key

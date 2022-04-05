@@ -1,9 +1,9 @@
 SHELL=/bin/bash
 
-$(shell mkdir -p ~/.cache/bundle) # avoid permission issue with docker
+$(shell mkdir -p ~/.cache/bundle) # avoid permission issue with docker when non-existent directory is mounted
 
 RUN=docker-compose run --rm --no-deps app
-EXEC=docker-compose exec app
+EXEC=docker-compose exec -u ruby app
 
 .DEFAULT_GOAL := help
 

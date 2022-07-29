@@ -1,14 +1,12 @@
-SHELL=/bin/bash
+SHELL:=bash
+.SHELLFLAGS:=-eu -o pipefail -c
+MAKEFLAGS+=--warn-undefined-variables
+MAKEFLAGS+=--no-builtin-rules
 
 $(shell mkdir -p ~/.cache/bundle) # avoid permission issue with docker when non-existent directory is mounted
 
-RUN=docker-compose run --rm --no-deps app
-EXEC=docker-compose exec -u ruby app
-
 .DEFAULT_GOAL := help
-
 .PHONY: help
-
 help:
 	@grep -E '(^[a-zA-Z_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
 
@@ -16,17 +14,19 @@ help:
 ## Project setup
 ##---------------------------------------------------------------------------
 
-.PHONY: start stop reset clean
-
+.PHONY: start
 start: .ssl/cert.crt deps ## Install and start the project
-	docker-compose pull --parallel --ignore-pull-failures
-	docker-compose up --remove-orphans
+	docker compose pull --parallel --ignore-pull-failures
+	docker compose up --remove-orphans
 
+.PHONY: stop
 stop: ## Remove docker containers, volumes, networks, etc.
-	docker-compose down --volumes --remove-orphans
+	docker compose down --volumes --remove-orphans
 
+.PHONY: reset
 reset: stop start ## Clean-up and restart the whole project
 
+.PHONY: clean
 clean: stop
 	rm -rf .ssl/ bundle/ _site/
 
@@ -34,14 +34,17 @@ clean: stop
 ## Utils
 ##---------------------------------------------------------------------------
 
+.PHONY: build
 build: ## Compile the website
-	$(EXEC) bundle exec jekyll build --drafts
+	bin/app bundle exec jekyll build --drafts
 
+.PHONY: draft
 draft: ## Create a new draft defined by $DRAFT variable
-	$(EXEC) bundle exec octopress new draft ${DRAFT}
+	bin/app bundle exec octopress new draft $(DRAFT)
 
+.PHONY: publish
 publish: ## Publish draft defined by $DRAFT variable
-	$(EXEC) bundle exec octopress publish _drafts/${DRAFT}
+	bin/app bundle exec octopress publish _drafts/$(DRAFT)
 	@echo "Published date :\n"
 	@php -r "echo date(DATE_ATOM);"
 
@@ -50,19 +53,18 @@ publish: ## Publish draft defined by $DRAFT variable
 ##---------------------------------------------------------------------------
 
 .PHONY: deps
-
 deps: bundle ## Install the project dependencies
 
-.PHONY: bundle-update
+.PHONY: deps-update
 deps-update: ## Update the project dependencies
-	$(RUN) bundle update
+	bin/app bundle update
 
 ##
 # Internal rules
 ##
 
 bundle: Gemfile.lock Gemfile
-	$(RUN) bundle install
+	bin/app bundle install
 	@touch $@
 
 Gemfile.lock: Gemfile

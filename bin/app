@@ -1,3 +1,8 @@
 #!/bin/bash
-set -e
-docker-compose exec -u ruby app "$@"
+set -euo pipefail
+
+if [[ "" != $(docker compose ps app -q --status running 2> /dev/null) ]]; then
+  docker compose exec -u ruby app "$@"
+else
+  docker compose run --rm --no-deps app "$@"
+fi

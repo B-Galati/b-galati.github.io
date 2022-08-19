@@ -1,5 +1,4 @@
 ---
-title: docker-compose-caching-in-CI
 date: 2018-03-04T09:07:28+01:00
 modified: 2018-03-10T11:33:55+01:00
 title: A docker compose caching strategy for CI

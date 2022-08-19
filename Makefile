@@ -44,7 +44,7 @@ draft: ## Create a new draft defined by $DRAFT variable
 
 .PHONY: publish
 publish: ## Publish draft defined by $DRAFT variable
-	bin/app bundle exec octopress publish _drafts/$(DRAFT)
+	bin/app bundle exec octopress publish "_drafts/$(DRAFT)"
 	@echo "Published date :\n"
 	@php -r "echo date(DATE_ATOM);"
 

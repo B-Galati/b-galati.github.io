@@ -5,7 +5,7 @@ title: A docker compose caching strategy for CI
 layout: post
 excerpt:
 categories: blog
-tags: ["docker", "docker-compose", "caching", "CI", "CircleCI"]
+tags: ["docker", "caching", "CI"]
 ---
 
 Let's say you have some great docker images for your dev/prod environment but

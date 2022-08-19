@@ -4,7 +4,7 @@ date: 2017-09-10T17:28:08+00:00
 layout: post
 excerpt:
 categories: blog
-tags: ["PHP Matcher", "behat", "testing"]
+tags: ["Behat", "testing"]
 ---
 
 [PHP Matcher](https://github.com/coduo/php-matcher) is an awesome library to do assertion against unpredictable data. Combined with [Behat](http://behat.org/) and the [Behatch contexts](https://github.com/Behatch/contexts) it's the perfect tool to test for non-deterministic JSON payload.
